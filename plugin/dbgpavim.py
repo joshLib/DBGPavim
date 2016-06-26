@@ -1041,7 +1041,7 @@ class DBGPavim:
     self.debugListener = DbgListener(self.port)
     vim.command('sign unplace *')
 
-    self.normal_statusline = vim.eval('&statusline')
+    self.normal_statusline = vim.eval('&statusline').replace('"', '\\"')
     self.statusline="%<%f\ %h%m%r\ %=%-10.(%l,%c%V%)\ %P\ %=%{(g:dbgPavimBreakAtEntry==1)?'bae':'bap'}"
     self.breakpt    = BreakPoint()
     self.breakold   = BreakPoint()
